@@ -384,6 +384,21 @@ export function TaskConsole() {
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       rehypePlugins={[rehypeSanitize]}
+                      components={{
+                        p: ({ children }) => (
+                          <p className=" whitespace-pre-wrap">{children}</p>
+                        ),
+                        pre: ({ children }) => (
+                          <pre className="overflow-x-auto whitespace-pre-wrap ">
+                            {children}
+                          </pre>
+                        ),
+                        code: ({ children }) => (
+                          <code className="whitespace-pre-wrap">
+                            {children}
+                          </code>
+                        ),
+                      }}
                     >
                       {summary.markdown}
                     </ReactMarkdown>
